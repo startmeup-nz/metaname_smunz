@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metaname_smunz"
+version = "0.0.1"
+description = "Python module for interacting with the Metaname API"
+authors = [
+  { name = "John Billings", email = "john@startmeup.nz" }
+]
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.9"
+dependencies = [
+  "requests>=2.0"
+]
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+packages = ["metaname_smunz"]
