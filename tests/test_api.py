@@ -76,7 +76,7 @@ def test_register_domain(monkeypatch):
     monkeypatch.setattr("metaname_smunz.api.requests.get", fake_get)
     monkeypatch.setattr("metaname_smunz.api.requests.post", fake_post)
 
-    client = MetanameClient()
+    client = MetanameClient(use_test_api=True)
 
     address = PostalAddress(
         line1="123 Test Street",

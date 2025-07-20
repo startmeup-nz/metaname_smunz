@@ -17,12 +17,18 @@ class MetanameClient:
         api_key: Optional[str] = None,
         item_name: str = "Metaname API Key",
         vault_name: str = "startmeup.nz",
+        use_test_api: bool = True,
+        
     ) -> None:
         """Initialise the client.
 
         Credentials can be supplied directly, via environment variables
         ``METANAME_ACCOUNT_REFERENCE`` and ``METANAME_API_KEY``, or loaded from
         1Password using ``item_name`` and ``vault_name``.
+
+        ``use_test_api`` determines whether requests are sent to the Metaname
+        test endpoint or the production API.
+ 
         """
 
         if account_reference is None:
@@ -40,6 +46,7 @@ class MetanameClient:
             self.api_key = api_key
 
         self.source_ip = self.get_source_ip()
+        self.use_test_api = use_test_api
 
     def get_source_ip(self) -> str:
         try:
@@ -67,7 +74,6 @@ class MetanameClient:
         term: int,
         contacts: Dict[str, ContactDetails],
         name_servers: Optional[Dict[str, str]] = None,
-        use_test_api: bool = True,
     ) -> dict:
         """Register a domain name using the Metaname API."""
 
@@ -87,7 +93,7 @@ class MetanameClient:
 
         url = (
             "https://test.metaname.net/api/1.1"
-            if use_test_api
+            if self.use_test_api
             else "https://metaname.net/api/1.1"
         )
 

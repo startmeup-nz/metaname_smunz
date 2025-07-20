@@ -7,7 +7,7 @@ from metaname_smunz import (
     PostalAddress,
 )
 
-client = MetanameClient()
+client = MetanameClient(use_test_api=True)
 
 base_contact = ContactDetails(
     name="Meta Test",
