@@ -18,6 +18,7 @@ class MetanameClient:
         item_name: str = "Metaname API Key",
         vault_name: str = "startmeup.nz",
         use_test_api: bool = True,
+        
     ) -> None:
         """Initialise the client.
 
@@ -27,6 +28,7 @@ class MetanameClient:
 
         ``use_test_api`` determines whether requests are sent to the Metaname
         test endpoint or the production API.
+ 
         """
 
         if account_reference is None:
